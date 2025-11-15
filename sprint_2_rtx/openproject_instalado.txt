@@ -1,0 +1,44 @@
+OpenProject Installation Success Report
+========================================
+Date: sáb 15 nov 2025 16:57:27 -03
+Host: rtx
+User: jose
+Repository: /home/jose/Repositorios/openproject
+
+OpenProject Version: stable/14 (Docker Deploy)
+Persistence Directory: /var/lib/openproject
+  - PostgreSQL Data: /var/lib/openproject/postgres-data
+  - OpenProject Data: /var/lib/openproject/op-data
+
+Access URL: http://op.rtx.local:8080
+Local URL: http://localhost:8080 (requires Host header)
+
+Default Credentials:
+  Username: admin
+  Password: admin
+  !! CHANGE IMMEDIATELY AFTER FIRST LOGIN !!
+
+Services Status:
+            Name                           Command                  State                                    Ports                              
+------------------------------------------------------------------------------------------------------------------------------------------------
+openproject-deploy_autoheal_1   /docker-entrypoint autoheal      Up (healthy)                                                                   
+openproject-deploy_cache_1      docker-entrypoint.sh memcached   Up             11211/tcp                                                       
+openproject-deploy_cron_1       ./docker/prod/entrypoint-s ...   Up             8080/tcp                                                        
+openproject-deploy_db_1         docker-entrypoint.sh postgres    Up             5432/tcp                                                        
+openproject-deploy_proxy_1      caddy run --config /etc/ca ...   Up             2019/tcp, 443/tcp, 443/udp, 0.0.0.0:8080->80/tcp,:::8080->80/tcp
+openproject-deploy_seeder_1     ./docker/prod/entrypoint-s ...   Exit 0                                                                         
+openproject-deploy_web_1        ./docker/prod/entrypoint-s ...   Up (healthy)   8080/tcp                                                        
+openproject-deploy_worker_1     ./docker/prod/entrypoint-s ...   Up             8080/tcp                                                        
+
+Installation completed successfully.
+All TDD validations passed:
+  [x] Persistence directories created
+  [x] Docker prerequisites verified
+  [x] Deploy repository cloned
+  [x] Environment file generated
+  [x] Volumes configured for persistence
+  [x] Stack started without errors
+  [x] HTTP 200 response received
+  [x] 'OpenProject' found in response
+
+This file serves as proof of successful installation.
